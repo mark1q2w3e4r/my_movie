@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 //import Potato from './Potato';
 //import Americano from './Americano';
 
-function Food(props){
+function Food(props){ // 실질적으로 프론트 단에 뿌려주는 친구. props 인자는 아래에서 html을 구성할때 거기에 속성값을 가져오는 properties들을 의미함
   return(
     <div>
       <h1>I like { props.name }</h1>
-  <h3>{props.rating}/5.0</h3>
+      <h3>{props.rating}/5.0</h3>
       <img src={ props.imgsrc } style={{width:"300px", height:"300px"}} alt={props.name} />
     </div>
   )
 }
 
-const foodILike = [
+const foodILike = [ // 데이터를 동적으로 여러개 만들기 위한 json 데이터 생성
   
   {
     id: 1,
@@ -48,10 +48,10 @@ const foodILike = [
 
 ];
 
-Food.propTypes = {
-  name: PropTypes.string.isRequired,
+Food.propTypes = { // 해당되는 props의 데이터타입을 겁사하여 콘솔로 에러를 찍어주는 라이브러리 기능
+  name: PropTypes.string.isRequired, // isRequired 는 필수사항, 없을경우 필수사항이 아닌 해당사항에 대한 검사
   imgsrc: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired
+  rating: PropTypes.number //isRequired 가 없기때문에 필수사항으로 체크하지 않음
 };
 
 function App() { // >> 이것을 컴포넌트라고 부름. 컴포넌트는 html을 반환하는 함수
@@ -59,7 +59,7 @@ function App() { // >> 이것을 컴포넌트라고 부름. 컴포넌트는 html
     <div>
       { //JavaScript 부분
         foodILike.map(function(dish){ // 각각의 이미지 값에 대해 컴포넌트를 일일히 만들어야하는 부담감을 줄여주는 역할을 하는 친구(map)
-           return <Food key={dish.id} name={dish.name} imgsrc={dish.image} rating={dish.rating}/>
+           return <Food key={dish.id} name={dish.name} imgsrc={dish.image} rating={dish.rating}/> // 실질적인 데이터
         })
       }
     </div>
