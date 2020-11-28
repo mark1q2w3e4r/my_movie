@@ -1,17 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+
+ReactDOM.render( // render는 한번에 하나밖에 할 수 없음... 그렇기에 모든 것을 <App /> 안에 때려넣는 작업이 필요함
+    <App />, document.getElementById('root') // react는 자바스크립트를 html처럼 동작할 수 있게끔 해주는 친구. 이를 JSX 라고 부름
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
